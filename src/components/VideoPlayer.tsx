@@ -19,6 +19,7 @@ const VideoPlayer = () => {
       width={"100%"}
       controls
       src="/video.mp4"
+      className="rounded-md"
     ></video>
   );
 };

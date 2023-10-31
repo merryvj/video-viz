@@ -26,14 +26,16 @@ function App() {
 
   return (
     <PlaybackContext.Provider value={{ currentTime, setCurrentTime }}>
-      <div className="flex flex-row">
-        <div className="basis-2/3">
-          <VideoPlayer />
+      <main className="min-h-screen w-screen bg-slate-50 p-4 g-">
+        <div className="flex flex-row gap-4 h-full">
+          <div className="basis-2/3 h-full">
+            <VideoPlayer />
+          </div>
+          <div className="flex-1">
+            <PredictionView data={results} />
+          </div>
         </div>
-        <div className="flex-1">
-          <PredictionView data={results} />
-        </div>
-      </div>
+      </main>
     </PlaybackContext.Provider>
   );
 }

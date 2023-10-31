@@ -8,11 +8,7 @@ import { Theme } from '@radix-ui/themes';
 
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <html>
-    <body>
-      <Theme>
-        <App />
-      </Theme>
-    </body>
-  </html>,
+  <Theme accentColor="gold">
+    <App />
+  </Theme>,
 );
