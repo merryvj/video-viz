@@ -1,10 +1,11 @@
 import { useContext, useState } from 'react';
-import usePredictions from '../utils/usePredictions';
+import { Separator, Badge } from '@radix-ui/themes';
 import * as d3 from 'd3';
+
+import usePredictions from '../utils/usePredictions';
 import { Emotion, PredictionModels } from '../types/predictions';
 import { PlaybackContext } from '../App';
 import { bucketBySecond, topAggregatedEmotions } from '../utils/timeBuckets';
-import { Separator, Badge } from '@radix-ui/themes';
 
 /*
 Main component for the interactive timeline visualization of overall emotion data

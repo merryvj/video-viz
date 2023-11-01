@@ -32,9 +32,9 @@ export function bucketBySecond(predictions: any[]): {
 }
 
 export function topAggregatedEmotions(buckets: any): Emotion[] {
-    const allEmotions = Object.values(buckets).flatMap(
-        (bucket) => bucket.emotions
-    );
+    const allEmotions = Object.values(
+        buckets as { [key: number]: EmotionBucket }
+    ).flatMap((bucket) => bucket.emotions);
 
     const aggregatedEmotions = allEmotions.reduce((acc, emotion) => {
         const existingEmotion = acc.find((e) => e.name === emotion.name);
