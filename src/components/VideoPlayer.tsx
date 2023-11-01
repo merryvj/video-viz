@@ -1,8 +1,8 @@
-import { useContext, useRef } from "react";
+import { useContext, useRef, useEffect } from "react";
 import { PlaybackContext } from "../App";
 
 const VideoPlayer = () => {
-  const { setCurrentTime } = useContext(PlaybackContext);
+  const { currentTime, setCurrentTime } = useContext(PlaybackContext);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const handleTimeUpdate = () => {
@@ -11,6 +11,13 @@ const VideoPlayer = () => {
       setCurrentTime(time);
     }
   };
+
+  useEffect(() => {
+    if (videoRef.current) {
+      if (!videoRef.current.paused) return;
+      videoRef.current.currentTime = currentTime;
+    }
+  }, [currentTime]);
 
   return (
     <video
